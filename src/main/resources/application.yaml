@@ -1,0 +1,45 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/pastebin_db
+    username: postgres
+    password: Postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+
+cloud:
+  aws:
+    credentials:
+      access-key:
+      secret-key:
+    region:
+      static: us-east-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name:
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+
+async:
+  core: 10
+  max: 20
+  queue_capacity: 50
+
+server:
+  port: 8090
