@@ -1,13 +1,15 @@
+server:
+  port: 8080
+
+
 spring:
   main:
     allow-bean-definition-overriding: true
-
   datasource:
     url: jdbc:postgresql://localhost:5433/pastebin_db
     username: postgres
     password: Postgres
     driver-class-name: org.postgresql.Driver
-
   jpa:
     hibernate:
       ddl-auto: none
@@ -16,6 +18,22 @@ spring:
       hibernate:
         format_sql: true
 
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
+
+  data:
+    redis:
+      port: 6379
+      host: localhost
+
+    kafka:
+      port: 9092
+      host: localhost
+      group-id: post_service
+
+    cache:
+      hashtag:
+        max_size: 1000
 
 cloud:
   aws:
@@ -36,10 +54,31 @@ logging:
     root: INFO
     org.springframework.web: DEBUG
 
+scheduler:
+  clear:
+    cron: "0 0 0 * * ?"  # Launching every day at midnight
+  generate:
+    cron: "0 0 0/8 * * ?" # Every 8 hours
+
 async:
+  task:
+    corePoolSize: 5
+    maxPoolSize: 10
+    queueCapacity: 100
+  post:
+    corePoolSize: 20
+    maxPoolSize: 50
+    queueCapacity: 100
   core: 10
   max: 20
   queue_capacity: 50
 
-server:
-  port: 8090
+services:
+  hash:
+    batch: 100
+    fillingPercent: 20
+    cache:
+      size: 200
+  encoder:
+    base62:
+      symbols: 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
