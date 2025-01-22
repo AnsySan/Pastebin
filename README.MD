@@ -34,12 +34,12 @@ GET http://localhost:8090/posts/1
 
 #### Request:
 ```plaintext
-GET http://localhost:8080/posts/user/{userId}
+GET http://localhost:8090/posts/user/{userId}
 ```
 
 #### Example:
 ```plaintext
-GET http://localhost:8080/posts/user/1
+GET http://localhost:8090/posts/user/1
 ```
 
 #### Response:
@@ -66,7 +66,7 @@ GET http://localhost:8080/posts/user/1
 
 #### Request:
 ```plaintext
-POST http://localhost:8080/posts
+POST http://localhost:8090/posts
 Content-Type: application/json
 ```
 
@@ -95,13 +95,13 @@ Content-Type: application/json
 
 #### Request:
 ```plaintext
-PATCH http://localhost:8080/posts/{postId}
+PATCH http://localhost:8090/posts/{postId}
 Content-Type: application/json
 ```
 
 #### Example:
 ```plaintext
-PATCH http://localhost:8080/posts/1
+PATCH http://localhost:8090/posts/1
 ```
 
 #### Body (JSON):
@@ -127,12 +127,12 @@ PATCH http://localhost:8080/posts/1
 
 #### Request:
 ```plaintext
-DELETE http://localhost:8080/posts/{postId}
+DELETE http://localhost:8090/posts/{postId}
 ```
 
 #### Example:
 ```plaintext
-DELETE http://localhost:8080/posts/1
+DELETE http://localhost:8090/posts/1
 ```
 
 #### Response:
@@ -140,4 +140,4 @@ DELETE http://localhost:8080/posts/1
 HTTP 200 OK (No content)
 ```
 
-You can directly use these queries in Postman by replacing `localhost:8080` with the actual domain or IP where your service is running, and adjust the paths and bodies as needed for your requests.
+You can directly use these queries in Postman by replacing `localhost:8090` with the actual domain or IP where your service is running, and adjust the paths and bodies as needed for your requests.
