@@ -10,7 +10,7 @@ Here are the Postman requests corresponding to the `PostController` API you've s
 
 #### Request:
 ```plaintext
-GET http://localhost:8080/posts/{postId}
+GET http://localhost:8090/posts/{postId}
 ```
 
 #### Example:
