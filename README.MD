@@ -15,7 +15,7 @@ GET http://localhost:8080/posts/{postId}
 
 #### Example:
 ```plaintext
-GET http://localhost:8080/posts/1
+GET http://localhost:8090/posts/1
 ```
 
 #### Response:
